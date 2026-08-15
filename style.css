@@ -169,6 +169,11 @@ main { padding: 16px 16px calc(80px + var(--safe-bottom)); max-width: 560px; mar
   font-variant-numeric: tabular-nums;
 }
 .slot-artist { font-size: 15.5px; font-weight: 700; flex: 1; }
+.slot-floor {
+  display: inline-block; margin-left: 6px; font-size: 10.5px; font-weight: 700;
+  color: var(--muted); background: var(--border); border-radius: 5px; padding: 1px 6px;
+  vertical-align: middle; text-transform: uppercase; letter-spacing: .5px;
+}
 .slot.now {
   border-color: var(--neon); background: rgba(57,255,136,.07);
   box-shadow: 0 0 0 1px var(--neon);

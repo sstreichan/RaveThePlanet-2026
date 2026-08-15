@@ -7,9 +7,9 @@ alle 34 Floats, Set-Zeiten und 19 Afterparties optimal auf dem Smartphone.
 
 - 📱 **Mobile-first** — optimiert für Smartphones (Dark Rave Theme, große Touch-Targets)
 - 🚚 **Alle 34 Floats** — sortiert nach Start-Nr., gruppiert nach Sektion
-- ⏰ **Set-Zeiten** für 10 Floats mit per-DJ-Timeline
+- ⏰ **Set-Zeiten** für 10 Floats mit per-DJ-Timeline (Stand 15.08.2026, Event-Tag)
 - 🔴 **Live-Ansicht** — "Jetzt läuft"-Indikator (welcher DJ spielt gerade?)
-- 🎪 **Afterparties** — Venues, Door-Zeiten, Ticket-Links
+- 🎪 **Afterparties** — Venues, Door-Zeiten, Ticket-Links, Set-Zeiten pro Floor wo veröffentlicht
 - 🔍 **Suche** - nach Float/Genre + Filter "Nur mit Set-Zeiten"
 
 ## Live

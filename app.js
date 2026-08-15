@@ -271,6 +271,14 @@ function partyCard(p) {
   const tag = p.category === "official" ? '<span class="party-tag">Offiziell</span>' : "";
   const styles = p.styles && p.styles.length ? `<div style="margin-top:8px">${p.styles.slice(0, 4).map((s) => `<span class="style-chip">${esc(s)}</span>`).join("")}</div>` : "";
   const truckLink = p.truck ? `<div class="party-meta" style="margin-top:6px">🎶 Float: ${esc(p.truck)}</div>` : "";
+  let slotsHtml = "";
+  if (p.hasSetTimes && p.setTimes && p.setTimes.length) {
+    slotsHtml = `<div class="info-block" style="margin-top:10px"><h3>Set-Zeiten</h3>${p.setTimes.map((s) => `
+      <div class="slot">
+        <div class="slot-time">${esc(s.start || "?")}–${esc(s.end || "?")}${s.floor ? `<span class="slot-floor">${esc(s.floor)}</span>` : ""}</div>
+        <div class="slot-artist">${esc(s.artist)}</div>
+      </div>`).join("")}</div>`;
+  }
   return `
   <div class="party-card">
     <div class="party-title">${esc(p.title)}${tag}</div>
@@ -278,6 +286,7 @@ function partyCard(p) {
     <div class="party-time">🕐 ${esc(p.doors || "?")} – ${esc(p.end || "?")} Uhr</div>
     ${truckLink}
     ${styles}
+    ${slotsHtml}
     ${p.ticketUrl ? `<a class="party-ticket" href="${esc(p.ticketUrl)}" target="_blank" rel="noopener">🎟 Tickets</a>` : ""}
   </div>`;
 }
