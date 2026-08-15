@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0a0a0f">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>RTP 2026 — Float Timetables</title>
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎉</text></svg>">
+</head>
+<body>
+<header id="topbar">
+  <div class="topbar-inner">
+    <h1 id="app-title">RTP 2026</h1>
+    <div id="live-badge" class="live-badge hidden"><span class="dot"></span> Live</div>
+  </div>
+</header>
+
+<main id="view"></main>
+
+<nav id="bottomnav">
+  <button class="nav-btn active" data-view="list" aria-label="Floats">
+    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M9 4v5M15 4v5"/></svg>
+    <span>Floats</span>
+  </button>
+  <button class="nav-btn" data-view="now" aria-label="Jetzt">
+    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+    <span>Jetzt</span>
+  </button>
+  <button class="nav-btn" data-view="parties" aria-label="Parties">
+    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3v18M18 3v18M3 9h18M3 15h18"/></svg>
+    <span>Parties</span>
+  </button>
+</nav>
+
+<div id="error-banner" class="error-banner hidden"></div>
+
+<script src="app.js"></script>
+</body>
+</html>
