@@ -14,6 +14,6 @@ alle 34 Floats, Set-Zeiten und 19 Afterparties optimal auf dem Smartphone.
 
 ## Live
 
-https://sstreichan.github.io/rtp-2026-timetable/
+https://sstreichan.github.io/rtp-2026/
 
 Zero Dependencies — nur HTML/CSS/JS.
