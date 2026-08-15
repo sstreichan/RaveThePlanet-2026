@@ -96,6 +96,13 @@ function go(hash) {
 }
 
 /* ── List view ────────────────────────────────────────── */
+function normKey(s) {
+  return String(s == null ? "" : s)
+    .toLowerCase()
+    .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z0-9]+/g, "");
+}
+
 function renderList() {
   const trucks = [...DATA.trucks].sort((a, b) =>
     (a.number ?? 9999) - (b.number ?? 9999));
@@ -104,10 +111,13 @@ function renderList() {
   if (filterOnlySetTimes) filtered = filtered.filter((t) => t.hasSetTimes);
   if (searchQuery) {
     const q = searchQuery.toLowerCase();
+    const nq = normKey(searchQuery);
     filtered = filtered.filter((t) =>
       t.name.toLowerCase().includes(q) ||
       (t.styles || []).some((s) => s.toLowerCase().includes(q)) ||
-      (t.primaryStyle || "").toLowerCase().includes(q));
+      (t.primaryStyle || "").toLowerCase().includes(q) ||
+      (t.slots || []).some((s) => nq && normKey(s.artist).includes(nq)) ||
+      (t.lineup || []).some((a) => nq && normKey(a).includes(nq)));
   }
 
   // Group by section
@@ -120,7 +130,7 @@ function renderList() {
 
   let html = `
     <div class="search-row">
-      <input id="search" type="search" placeholder="Suche Float oder Genre…" value="${esc(searchQuery)}">
+      <input id="search" type="search" placeholder="Suche Float, DJ oder Genre…" value="${esc(searchQuery)}">
     </div>
     <div class="chips">
       <button class="chip ${filterOnlySetTimes ? "" : "active"}" data-filter="all">Alle (${trucks.length})</button>
@@ -137,9 +147,18 @@ function renderList() {
       }
     }
   }
+  const prevSearch = document.getElementById("search");
+  const hadFocus = document.activeElement === prevSearch;
+  const selStart = prevSearch ? prevSearch.selectionStart : 0;
+  const selEnd = prevSearch ? prevSearch.selectionEnd : 0;
+
   $view.innerHTML = html;
 
   const search = document.getElementById("search");
+  if (hadFocus) {
+    search.focus({ preventScroll: true });
+    search.setSelectionRange(selStart, selEnd);
+  }
   search.addEventListener("input", () => {
     searchQuery = search.value;
     renderList();
