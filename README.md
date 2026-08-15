@@ -14,6 +14,4 @@ alle 34 Floats, Set-Zeiten und 19 Afterparties optimal auf dem Smartphone.
 
 ## Live
 
-https://sstreichan.github.io/rtp-2026/
-
-Zero Dependencies — nur HTML/CSS/JS.
+https://sstreichan.github.io/RaveThePlanet-2026/.
